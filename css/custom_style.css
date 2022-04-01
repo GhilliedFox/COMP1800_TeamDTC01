@@ -1,0 +1,42 @@
+/*-------------------------------------
+ * customize material design icon sizes 
+ *-------------------------------------
+ */
+
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.md-24 {
+  font-size: 24px;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+}
+.material-icons.md-48 {
+  font-size: 48px;
+}
+.navbar-brand {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+.bg-info {
+  background-color: #3e92cc !important;
+}
+
+.navbar-light .navbar-brand {
+  color: #000000;
+}
+
+.btn-primary {
+  color: #000000;
+  background-color: #2a628f;
+  border-color: #25283d;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #25283d;
+  border-color: #7592a6;
+}
+body {
+  background-color: #f5f5f5;
+}

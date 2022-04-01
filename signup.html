@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup / Login</title>
+    <link rel="stylesheet" href="./signup_stylesheet.css" />
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  </head>
+  <body>
+    <div class="container right-panel-active">
+      <!-- Sign Up -->
+      <div class="container__form container--signup">
+        <form action="./login.html" class="form" id="form1">
+          <h2 class="form__title">Sign Up</h2>
+          <a href="./login.html" class="btn">Sign Up</a>
+        </form>
+      </div>
+
+      <!-- Sign In -->
+      <div class="container__form container--signin">
+        <form action="./login.html" class="form" id="form2">
+          <h2 class="form__title">Sign In</h2>
+          <a href="./login.html" class="btn">Sign In</a>
+        </form>
+      </div>
+
+      <!-- Overlay -->
+      <div class="container__overlay">
+        <div class="overlay">
+          <div class="overlay__panel overlay--left">
+            <button class="btn" id="signIn">Sign In</button>
+          </div>
+          <div class="overlay__panel overlay--right">
+            <button class="btn" id="signUp">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+    <script src="./scripts/signup.js"></script>
+  </body>
+</html>
