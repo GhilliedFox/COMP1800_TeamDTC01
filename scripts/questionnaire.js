@@ -38,7 +38,7 @@ function tabulateAnswers() {
   // Display answer corresponding to that choice
   var answerbox = document.getElementById('answer');
   if (c1score == maxscore) { // If user chooses the first choice the most, this outcome will be displayed.
-    answerbox.innerHTML = "Answer A athletes.    " 
+    answerbox.innerHTML = "Answer A athletes.    " + button_code
   }
   if (c2score == maxscore) { // If user chooses the second choice the most, this outcome will be displayed.
     answerbox.innerHTML = "Answer B athletes.";
