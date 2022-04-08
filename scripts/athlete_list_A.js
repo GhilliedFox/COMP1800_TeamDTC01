@@ -30,6 +30,7 @@ function populateCardsDynamically() {
         var AthleteSport = doc.data().dis; //gets the sport field
         var AthleteCountry = doc.data().noc; // gets the country field
         var AthleteCode = doc.data().code; // gets the unique code field
+        var Athletelnk = doc.data().lnk; // gets the lnk field
         let testHikeCard = hikeCardTemplate.content.cloneNode(true);
         testHikeCard.querySelector(".card-title").innerHTML =
           athleteName + " " + athleteName2;
@@ -49,6 +50,7 @@ function populateCardsDynamically() {
         testHikeCard.querySelector("a").onclick = () =>
           setHikeData(AthleteCode);
         testHikeCard.querySelector("img").src = `./images/${AthleteCode}.png`;
+        testHikeCard.querySelector(".link-primary").href = Athletelnk;
         //next 2 lines are new for demo#11
         //this line sets the id attribute for the <i> tag in the format of "save-hikdID"
         //so later we know which hike to bookmark based on which hike was clicked
@@ -73,22 +75,61 @@ function populateCardsDynamically() {
 // It adds the hike to the "bookmarks" array
 // Then it will change the bookmark icon from the hollow to the solid version.
 //-----------------------------------------------------------------------------
+// function saveBookmark(AthleteCode) {
+//   currentUser
+//     .set(
+//       {
+//         bookmarks: firebase.firestore.FieldValue.arrayUnion(AthleteCode),
+//       },
+//       {
+//         merge: true,
+//       }
+//     )
+//     .then(function () {
+//       console.log("bookmark has been saved for: " + currentUser);
+//       var iconID = "save-" + AthleteCode;
+//       //console.log(iconID);
+//       document.getElementById(iconID).innerText = "bookmark";
+//     });
+// }
 function saveBookmark(AthleteCode) {
-  currentUser
-    .set(
-      {
-        bookmarks: firebase.firestore.FieldValue.arrayUnion(AthleteCode),
-      },
-      {
-        merge: true,
-      }
-    )
-    .then(function () {
-      console.log("bookmark has been saved for: " + currentUser);
-      var iconID = "save-" + AthleteCode;
-      //console.log(iconID);
-      document.getElementById(iconID).innerText = "bookmark";
-    });
+  if (
+    document.querySelector(".material-icons").innerHTML == "bookmark_border"
+  ) {
+    currentUser
+      .set(
+        {
+          bookmarks: firebase.firestore.FieldValue.arrayUnion(AthleteCode),
+        },
+        {
+          merge: true,
+        }
+      )
+      .then(function () {
+        document.querySelector(".material-icons").innerHTML = "bookmark";
+        console.log("bookmark has been saved for: " + currentUser);
+        db.collection("users").doc(AthleteCode).update({
+          saved: true,
+        });
+      });
+  } else {
+    currentUser
+      .set(
+        {
+          bookmarks: firebase.firestore.FieldValue.arrayRemove(AthleteCode),
+        },
+        {
+          merge: true,
+        }
+      )
+      .then(function () {
+        document.querySelector(".material-icons").innerHTML = "bookmark_border";
+        console.log("bookmark has been removed for: " + currentUser);
+        db.collection("users").doc(AthleteCode).update({
+          saved: false,
+        });
+      });
+  }
 }
 function setHikeData(id) {
   localStorage.setItem("AthleteCode", id);
