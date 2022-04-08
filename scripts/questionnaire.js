@@ -6,7 +6,6 @@ function tabulateAnswers() {
   var c2score = 0;
   var c3score = 0;
   var c4score = 0;
-
   // get a list of the radio inputs on the page
   var choices = document.getElementsByTagName("input");
   // loop through all the radio inputs
