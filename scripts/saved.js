@@ -16,8 +16,8 @@ function getBookmarks(user) {
       let CardTemplate = document.getElementById("CardTemplate");
       bookmarks.forEach((code) => {
         console.log(code);
-        db.collection("hikes")
-          .where("id", "==", code)
+        db.collection("athletes")
+          .where("code", "==", code)
           .get()
           .then((snap) => {
             size = snap.size;
@@ -45,7 +45,7 @@ function getBookmarks(user) {
                 doc.data().Gender;
               newCard.querySelector("a").onclick = () =>
                 setHikeData(AthleteCode);
-              newCard.querySelector("img").src = `./images/${AthleteCode}.jpg`;
+              newCard.querySelector("img").src = `./images/${AthleteCode}.png`;
               hikeCardGroup.appendChild(newCard);
             } else {
               console.log("Query has more than one data");
