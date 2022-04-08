@@ -30,6 +30,7 @@ function populateCardsDynamically() {
         var AthleteSport = doc.data().dis; //gets the sport field
         var AthleteCountry = doc.data().noc; // gets the country field
         var AthleteCode = doc.data().code; // gets the unique code field
+        var Athletelnk = doc.data().lnk; // gets the lnk field
         let testHikeCard = hikeCardTemplate.content.cloneNode(true);
         testHikeCard.querySelector(".card-title").innerHTML =
           athleteName + " " + athleteName2;
@@ -49,6 +50,7 @@ function populateCardsDynamically() {
         testHikeCard.querySelector("a").onclick = () =>
           setHikeData(AthleteCode);
         testHikeCard.querySelector("img").src = `./images/${AthleteCode}.png`;
+        testHikeCard.querySelector(".link-primary").href = Athletelnk;
         //next 2 lines are new for demo#11
         //this line sets the id attribute for the <i> tag in the format of "save-hikdID"
         //so later we know which hike to bookmark based on which hike was clicked
