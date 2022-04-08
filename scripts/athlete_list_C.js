@@ -20,8 +20,8 @@ function populateCardsDynamically() {
   db.collection("athletes")
     .limit(4)
     .orderBy("dis")
-    .startAt("B") //NEW LINE;  what do you want to sort by?
-    .endAt("C")
+    .startAt("C") //NEW LINE;  what do you want to sort by?
+    .endAt("D")
     .get()
     .then((allAthletes) => {
       allAthletes.forEach((doc) => {
