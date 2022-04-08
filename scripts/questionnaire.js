@@ -6,6 +6,7 @@ function tabulateAnswers() {
   var c2score = 0;
   var c3score = 0;
   var c4score = 0;
+  button_code = "<button class=''> Click me! </button>";
   
   // get a list of the radio inputs on the page
   var choices = document.getElementsByTagName('input');
@@ -37,7 +38,7 @@ function tabulateAnswers() {
   // Display answer corresponding to that choice
   var answerbox = document.getElementById('answer');
   if (c1score == maxscore) { // If user chooses the first choice the most, this outcome will be displayed.
-    answerbox.innerHTML = "Answer A athletes.";
+    answerbox.innerHTML = "Answer A athletes.    " 
   }
   if (c2score == maxscore) { // If user chooses the second choice the most, this outcome will be displayed.
     answerbox.innerHTML = "Answer B athletes.";
