@@ -25,24 +25,24 @@ function getBookmarks(user) {
 
             if (size == 1) {
               var doc = queryData[0].data();
-              var athleteName = doc.data().GivenName; //gets the firstname field
-              var athleteName2 = doc.data().FamilyName; //gets the lastname field
-              var AthleteGender = doc.data().Gender; //gets the gender field
-              var AthleteSport = doc.data().dis; //gets the sport field
-              var AthleteCountry = doc.data().noc; // gets the country field
-              var AthleteCode = doc.data().code; // gets the unique code field
+              var athleteName = doc.GivenName; //gets the firstname field
+              var athleteName2 = doc.FamilyName; //gets the lastname field
+              var AthleteGender = doc.Gender; //gets the gender field
+              var AthleteSport = doc.dis; //gets the sport field
+              var AthleteCountry = doc.noc; // gets the country field
+              var AthleteCode = doc.code; // gets the unique code field
               let newCard = CardTemplate.content.cloneNode(true);
               newCard.querySelector(".card-title").innerHTML =
                 athleteName + " " + athleteName2;
               newCard.querySelector(".card-length").innerHTML =
                 "Country: " +
-                doc.data().noc +
+                AthleteCountry +
                 "<br>" +
                 "Sport: " +
-                doc.data().dis +
+                AthleteSport +
                 "<br>" +
                 "Gender: " +
-                doc.data().Gender;
+                AthleteGender;
               newCard.querySelector("a").onclick = () =>
                 setHikeData(AthleteCode);
               newCard.querySelector("img").src = `./images/${AthleteCode}.png`;
