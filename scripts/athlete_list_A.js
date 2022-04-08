@@ -12,7 +12,6 @@ firebase.auth().onAuthStateChanged((user) => {
     window.location.href = "login.html";
   }
 });
-
 function populateCardsDynamically() {
   let hikeCardTemplate = document.getElementById("hikeCardTemplate");
   let hikeCardGroup = document.getElementById("hikeCardGroup");
@@ -91,7 +90,6 @@ function saveBookmark(AthleteCode) {
       document.getElementById(iconID).innerText = "bookmark";
     });
 }
-
 function setHikeData(id) {
   localStorage.setItem("AthleteCode", id);
 }
