@@ -48,7 +48,7 @@ function populateCardsDynamically() {
 
         testHikeCard.querySelector("a").onclick = () =>
           setHikeData(AthleteCode);
-        testHikeCard.querySelector("img").src = `./images/${AthleteCode}.jpg`;
+        testHikeCard.querySelector("img").src = `./images/${AthleteCode}.png`;
         //next 2 lines are new for demo#11
         //this line sets the id attribute for the <i> tag in the format of "save-hikdID"
         //so later we know which hike to bookmark based on which hike was clicked
