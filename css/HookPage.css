@@ -1,10 +1,13 @@
 body {
     background:
              /* top, transparent black, faked with gradient */ linear-gradient(
-        rgba(0, 0, 0, 0.7),
-        rgba(0, 0, 0, 0.7)
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.7)
       ),
       /* bottom, image */ url();
+  }
+  #wrapper {
+    margin: 5%;
   }
   #mainNav {
     padding-top: 1rem;
@@ -12,7 +15,7 @@ body {
     background-color: #212529;
   }
   .container{
-      color: rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
   }
   #mainNav .navbar-toggler {
     padding: 0.75rem;
@@ -60,5 +63,8 @@ body {
     }
     #mainNav .navbar-nav .nav-item:last-child {
       margin-right: 0;
+    }
+    #footerPlaceholder{
+      background-color: #212529;
     }
   }

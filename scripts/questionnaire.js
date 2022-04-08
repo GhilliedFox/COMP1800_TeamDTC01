@@ -68,7 +68,4 @@ function test() {
   );
 }
 
-function setup() {
-  test();
-}
 $(document).ready(setup);
