@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <title>Olympic Questionnaire</title>
     <link rel="stylesheet" href="./css/questionnaire.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./scripts/questionnaire.js"></script>
   </head>
   <body>
     <!-- partial:index.partial.html -->
@@ -17,80 +19,80 @@
         <!-- Here are the choices for the first question. Each input tag must have the same name. For this question, the name is q1. -->
         <!-- The value is which answer the choice corresponds to. -->
         <label
-          ><input type="radio" name="q1" value="c1" />
-          Team sports on ice (example: hockey) </label
+          ><input type="radio" name="q1" value="c1" /> Team sports on ice
+          (example: hockey) </label
         ><br />
         <label
-          ><input type="radio" name="q1" value="c2" />
-          Individual sports on ice (example: skeleton) </label
+          ><input type="radio" name="q1" value="c2" /> Individual sports on ice
+          (example: skeleton) </label
         ><br />
         <label
-          ><input type="radio" name="q1" value="c3" />
-          Team sports on snow (example: biathlon relay) </label
+          ><input type="radio" name="q1" value="c3" /> Team sports on snow
+          (example: biathlon relay) </label
         ><br />
         <label
-          ><input type="radio" name="q1" value="c4" />
-          Individul sports on snow (example: snowboard big air) </label
+          ><input type="radio" name="q1" value="c4" /> Individul sports on snow
+          (example: snowboard big air) </label
         ><br />
 
         <!-- Question 2 -->
         <h2>Which do you prefer?</h2>
         <!-- Here are the choices for the second question. Notice how each input tag has the same name (q2), but a different name than the previous question. -->
         <label
-          ><input type="radio" name="q2" value="c1" />
-          Objectively scored events on ice (example: speed skating) </label
+          ><input type="radio" name="q2" value="c1" /> Objectively scored events
+          on ice (example: speed skating) </label
         ><br />
         <label
-          ><input type="radio" name="q2" value="c2" />
-          Subjectively scored events on ice (example: figure skating) </label
+          ><input type="radio" name="q2" value="c2" /> Subjectively scored
+          events on ice (example: figure skating) </label
         ><br />
         <label
-          ><input type="radio" name="q2" value="c3" />
-          Objectively scored events on snow (example: cross-country skiing) </label
+          ><input type="radio" name="q2" value="c3" /> Objectively scored events
+          on snow (example: cross-country skiing) </label
         ><br />
         <label
-          ><input type="radio" name="q2" value="c4" />
-          Subjectively scored events on snow (example: snowboard half-pipe) </label
+          ><input type="radio" name="q2" value="c4" /> Subjectively scored
+          events on snow (example: snowboard half-pipe) </label
         ><br />
 
         <!-- Question 3 -->
         <h2>Which do you prefer?</h2>
         <!-- Choices for the third question -->
         <label
-          ><input type="radio" name="q3" value="c1" />
-          Short events on ice (example: luge) </label
+          ><input type="radio" name="q3" value="c1" /> Short events on ice
+          (example: luge) </label
         ><br />
         <label
-          ><input type="radio" name="q3" value="c2" />
-          Long events on ice (example: curling) </label
+          ><input type="radio" name="q3" value="c2" /> Long events on ice
+          (example: curling) </label
         ><br />
         <label
-          ><input type="radio" name="q3" value="c3" />
-          Short events on snow (example: alpine skiing downhill) </label
+          ><input type="radio" name="q3" value="c3" /> Short events on snow
+          (example: alpine skiing downhill) </label
         ><br />
         <label
-          ><input type="radio" name="q3" value="c4" />
-          Long events on snow (example: biathlon) </label
+          ><input type="radio" name="q3" value="c4" /> Long events on snow
+          (example: biathlon) </label
         ><br />
 
         <!-- Question 4 -->
         <h2>Which do you prefer?</h2>
         <!-- Choices for the fourth question -->
         <label
-          ><input type="radio" name="q4" value="c1" />
-          Dangerous, high-risk sports on snow (example: ski half-pipe) </label
+          ><input type="radio" name="q4" value="c1" /> Dangerous, high-risk
+          sports on snow (example: ski half-pipe) </label
         ><br />
         <label
-          ><input type="radio" name="q4" value="c2" />
-          Dangerous, high-risk sports on ice (example: luge) </label
+          ><input type="radio" name="q4" value="c2" /> Dangerous, high-risk
+          sports on ice (example: luge) </label
         ><br />
         <label
-          ><input type="radio" name="q4" value="c3" />
-          Safe, low risk sports on snow (example: cross-country skiing ) </label
+          ><input type="radio" name="q4" value="c3" /> Safe, low risk sports on
+          snow (example: cross-country skiing ) </label
         ><br />
         <label
-          ><input type="radio" name="q4" value="c4" />
-          Safe, low risk sports on ice (example: curling) </label
+          ><input type="radio" name="q4" value="c4" /> Safe, low risk sports on
+          ice (example: curling) </label
         ><br />
 
         <button type="button" id="submit" onclick="tabulateAnswers()">
@@ -102,6 +104,5 @@
       <div id="answer">Your result will show up here!</div>
     </div>
     <!-- partial -->
-    <script src="./scripts/questionnaire.js"></script>
   </body>
 </html>
