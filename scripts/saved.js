@@ -54,3 +54,42 @@ function getBookmarks(user) {
       });
     });
 }
+function saveBookmark(AthleteCode) {
+  if (
+    document.querySelector(".material-icons").innerHTML == "bookmark_border"
+  ) {
+    currentUser
+      .set(
+        {
+          bookmarks: firebase.firestore.FieldValue.arrayUnion(AthleteCode),
+        },
+        {
+          merge: true,
+        }
+      )
+      .then(function () {
+        document.querySelector(".material-icons").innerHTML = "bookmark";
+        console.log("bookmark has been saved for: " + currentUser);
+        db.collection("users").doc(AthleteCode).update({
+          saved: true,
+        });
+      });
+  } else {
+    currentUser
+      .set(
+        {
+          bookmarks: firebase.firestore.FieldValue.arrayRemove(AthleteCode),
+        },
+        {
+          merge: true,
+        }
+      )
+      .then(function () {
+        document.querySelector(".material-icons").innerHTML = "bookmark_border";
+        console.log("bookmark has been removed for: " + currentUser);
+        db.collection("users").doc(AthleteCode).update({
+          saved: false,
+        });
+      });
+  }
+}
