@@ -37,19 +37,19 @@ function tabulateAnswers() {
   var answerbox = document.getElementById("answer");
   if (c1score == maxscore) {
     // If user chooses the first choice the most, this outcome will be displayed.
-    answerbox.innerHTML = "Answer A athletes.";
+    test();
   }
   if (c2score == maxscore) {
     // If user chooses the second choice the most, this outcome will be displayed.
-    answerbox.innerHTML = "Answer B athletes.";
+    test_2();
   }
   if (c3score == maxscore) {
     // If user chooses the third choice the most, this outcome will be displayed.
-    answerbox.innerHTML = "Answer C athletes.";
+    test_3();
   }
   if (c4score == maxscore) {
     // If user chooses the fourth choice the most, this outcome will be displayed.
-    test();
+    test_4();
   }
 }
 // If you add more choices, you must add another response below.
@@ -62,8 +62,32 @@ function resetAnswer() {
 
 function test() {
   jQuery("#answer").html(
-    "<a href='https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjLtNe2xIP3AhVwJzQIHX2uADsQ3yx6BAgDEAI&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DdQw4w9WgXcQ&usg=AOvVaw0aHtehaphMhOCAkCydRLZU'>" +
-      "test" +
+    "<a href='https://teamdtc01-waldo.netlify.app/athlete_list_a.html'>" +
+      "Click for results" +
+      "</a>"
+  );
+}
+
+function test_2() {
+  jQuery("#answer").html(
+    "<a href='https://teamdtc01-waldo.netlify.app/athlete_list_b.html'>" +
+      "Click for results" +
+      "</a>"
+  );
+}
+
+function test_3() {
+  jQuery("#answer").html(
+    "<a href='https://teamdtc01-waldo.netlify.app/athlete_list_c.html'>" +
+      "Click for results" +
+      "</a>"
+  );
+}
+
+function test_4() {
+  jQuery("#answer").html(
+    "<a href='https://teamdtc01-waldo.netlify.app/athlete_list_d.html'>" +
+      "Click for results" +
       "</a>"
   );
 }
