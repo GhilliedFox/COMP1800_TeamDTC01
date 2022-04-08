@@ -18,7 +18,7 @@ function populateCardsDynamically() {
   let hikeCardGroup = document.getElementById("hikeCardGroup");
 
   db.collection("athletes")
-    // .limit(2) //NEW LINE:  how many do you want to get?
+    .limit(4) 
     .orderBy("dis")
     .startAt("I") //NEW LINE;  what do you want to sort by?
     .endAt("J")
