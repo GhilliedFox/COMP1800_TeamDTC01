@@ -31,6 +31,7 @@ function populateCardsDynamically() {
         var AthleteCountry = doc.data().noc; // gets the country field
         var AthleteCode = doc.data().code; // gets the unique code field
         var Athletelnk = doc.data().lnk; // gets the lnk field
+        var Athleteig = doc.data().ig; // gets the ig field
         let testHikeCard = hikeCardTemplate.content.cloneNode(true);
         testHikeCard.querySelector(".card-title").innerHTML =
           athleteName + " " + athleteName2;
@@ -59,7 +60,7 @@ function populateCardsDynamically() {
         testHikeCard.querySelector("i").onclick = () =>
           saveBookmark(AthleteCode);
 
-        testHikeCard.querySelector(".read-more").href =
+        testHikeCard.querySelector(".read-more").href = Athleteig;
           "eachHike.html?athleteName=" + athleteName + "&id=" + AthleteCode;
 
         //append child is for when everything is ready to stick into the DOM
