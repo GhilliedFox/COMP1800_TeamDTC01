@@ -18,7 +18,7 @@ function populateCardsDynamically() {
   let hikeCardGroup = document.getElementById("hikeCardGroup");
 
   db.collection("athletes")
-    .limit(4) 
+    .limit(4)
     .orderBy("dis")
     .startAt("F") //NEW LINE;  what do you want to sort by?
     .endAt("G")
@@ -30,6 +30,7 @@ function populateCardsDynamically() {
         var AthleteGender = doc.data().Gender; //gets the gender field
         var AthleteSport = doc.data().dis; //gets the sport field
         var AthleteCountry = doc.data().noc; // gets the country field
+        var AthleteCode = doc.data().code; // gets the unique code field
         let testHikeCard = hikeCardTemplate.content.cloneNode(true);
         testHikeCard.querySelector(".card-title").innerHTML =
           athleteName + " " + athleteName2;
@@ -47,18 +48,18 @@ function populateCardsDynamically() {
           doc.data().Gender;
 
         testHikeCard.querySelector("a").onclick = () =>
-          setHikeData(AthleteGender);
-        testHikeCard.querySelector("img").src = `./images/${AthleteGender}.jpg`;
+          setHikeData(AthleteCode);
+        testHikeCard.querySelector("img").src = `./images/${AthleteCode}.jpg`;
         //next 2 lines are new for demo#11
         //this line sets the id attribute for the <i> tag in the format of "save-hikdID"
         //so later we know which hike to bookmark based on which hike was clicked
-        testHikeCard.querySelector("i").id = "save-" + AthleteGender;
+        testHikeCard.querySelector("i").id = "save-" + AthleteCode;
         // this line will call a function to save the hikes to the user's document
         testHikeCard.querySelector("i").onclick = () =>
-          saveBookmark(AthleteGender);
+          saveBookmark(AthleteCode);
 
         testHikeCard.querySelector(".read-more").href =
-          "eachHike.html?athleteName=" + athleteName + "&id=" + AthleteGender;
+          "eachHike.html?athleteName=" + athleteName + "&id=" + AthleteCode;
 
         //append child is for when everything is ready to stick into the DOM
         hikeCardGroup.appendChild(testHikeCard);
@@ -73,11 +74,11 @@ function populateCardsDynamically() {
 // It adds the hike to the "bookmarks" array
 // Then it will change the bookmark icon from the hollow to the solid version.
 //-----------------------------------------------------------------------------
-function saveBookmark(AthleteGender) {
+function saveBookmark(AthleteCode) {
   currentUser
     .set(
       {
-        bookmarks: firebase.firestore.FieldValue.arrayUnion(AthleteGender),
+        bookmarks: firebase.firestore.FieldValue.arrayUnion(AthleteCode),
       },
       {
         merge: true,
@@ -85,12 +86,12 @@ function saveBookmark(AthleteGender) {
     )
     .then(function () {
       console.log("bookmark has been saved for: " + currentUser);
-      var iconID = "save-" + AthleteGender;
+      var iconID = "save-" + AthleteCode;
       //console.log(iconID);
       document.getElementById(iconID).innerText = "bookmark";
     });
 }
 
 function setHikeData(id) {
-  localStorage.setItem("AthleteGender", id);
+  localStorage.setItem("AthleteCode", id);
 }
