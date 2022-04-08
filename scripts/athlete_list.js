@@ -23,10 +23,11 @@ function populateCardsDynamically() {
     .get()
     .then((allAthletes) => {
       allAthletes.forEach((doc) => {
-        var athleteName = doc.data().GivenName; //gets the name field
-        var athleteName2 = doc.data().FamilyName; //gets the name field
+        var athleteName = doc.data().GivenName; //gets the firstname field
+        var athleteName2 = doc.data().FamilyName; //gets the lastname field
         var AthleteGender = doc.data().Gender; //gets the gender field
         var AthleteSport = doc.data().dis; //gets the sport field
+        var AthleteCountry = doc.data().noc; // gets the country field
         let testHikeCard = hikeCardTemplate.content.cloneNode(true);
         testHikeCard.querySelector(".card-title").innerHTML =
           athleteName + " " + athleteName2;
@@ -34,7 +35,14 @@ function populateCardsDynamically() {
 
         //NEW LINE: update to display length, duration, last updated
         testHikeCard.querySelector(".card-length").innerHTML =
-          "Gender: " + doc.data().Gender + "<br>" + "Sport: " + doc.data().dis;
+          "Country: " +
+          doc.data().noc +
+          "<br>" +
+          "Sport: " +
+          doc.data().dis +
+          "<br>" +
+          "Gender: " +
+          doc.data().Gender;
 
         testHikeCard.querySelector("a").onclick = () =>
           setHikeData(AthleteGender);
